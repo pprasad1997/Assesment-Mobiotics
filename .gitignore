@@ -6,8 +6,8 @@
 /out-tsc
 
 #backend
-/backend
-/node-backend
+#/backend
+#/node-backend
 
 # dependencies
 /node_modules
