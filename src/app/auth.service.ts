@@ -3,6 +3,9 @@ import { HttpClient } from "@angular/common/http";
 import { User, UserLoggedData } from "./user.mode";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
+import { environment } from "src/environments/environment";
+
+const BACKEND_URL = environment.URL;
 
 @Injectable({
 providedIn: "root"
@@ -29,7 +32,7 @@ export class AuthService {
       email: email,
       password: password
     }
-    this.http.post("http://localhost:3000/register", userData)
+    this.http.post(BACKEND_URL +"register", userData)
       .subscribe(response => {
         this.isRegistered.next(true);
         this.router.navigate(['']);
@@ -52,7 +55,7 @@ export class AuthService {
       email: email,
       password: password
     };
-    this.http.post<{message: string, user:UserLoggedData}>("http://localhost:3000/login", userCredientials)
+    this.http.post<{message: string, user:UserLoggedData}>(BACKEND_URL +"login", userCredientials)
       .subscribe(response => {
         this.userLoggedData = response.user;
         this.isLogged.next({loggedIn: true, user:this.userLoggedData});
@@ -87,7 +90,7 @@ export class AuthService {
     newdata.append("img", img, id.toString());
     newdata.append("id", id.toString());
     console.log(img);
-    this.http.put<{message: string}>("http://localhost:3000/update", newdata).subscribe(result => {
+    this.http.put<{message: string}>(BACKEND_URL +"update", newdata).subscribe(result => {
       alert(result.message);
       this.router.navigate(['/home']);
     }, (err) => {
