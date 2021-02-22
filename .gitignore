@@ -6,7 +6,7 @@
 /out-tsc
 
 #backend
-#/backend
+/backend
 #/node-backend
 
 # dependencies

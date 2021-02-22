@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h4 class="text-center">Update Profile</h4>
+      <form (ngSubmit)="onUpdate(form)" #form="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="form-control" type="text" id="name" name="name" [ngModel]="userData.name" required>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input class="form-control" type="number" id="mobile" name="mobile" [ngModel]="userData.mobile" required>
+        </div>
+        <div class="form-group">
+          <label for="profile">Profile Picture</label>
+          <input class="form-control" (change)="onUpload($event)" type="file" id="profile" name="profile" ngModel required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" [disabled]="form.invalid">Update</button>
+          <button class="btn btn-primary" type="reset" [disabled]="!form.touched" >Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

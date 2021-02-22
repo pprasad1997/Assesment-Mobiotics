@@ -1,0 +1,9 @@
+{
+  "env": {
+    "DB_HOST": "remotemysql.com",
+    "DB_USER": "BYBXW16i3o",
+    "DB_PASS": "JaXmP7dMIM",
+    "DB_DATABASE": "BYBXW16i3o",
+    "PORT": "3306"
+  }
+}
